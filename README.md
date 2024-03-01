@@ -1,4 +1,4 @@
-![Text](URL)
+![Rustventory Visual](rustventory.png)
 
 # Rustventory
 
@@ -9,7 +9,7 @@ Rustventory is a robust inventory management system built with the Rust programm
 - Error Handling: Robust validation and error handling mechanisms.
 - Basic Security: Simple authentication to protect inventory data.
 
-## Vision Statement: 
+## Vision Statement:
 
 Rustventory aims to revolutionize inventory management for small businesses, empowering them with efficient, reliable, and secure tools to streamline their operations. We envision a world where inventory tracking is no longer a source of stress, freeing retailers to focus on growth and customer satisfaction. Rustventory's accuracy and ease of use will help businesses minimize waste, optimize stock levels, and ultimately enhance their bottom line.
 
@@ -56,22 +56,29 @@ Explore integration with external libraries for advanced features like database 
 ## Installation Guide:
 
 ### Prerequisites:
+
 Rust: Download and install Rust from the official website: https://www.rust-lang.org/tools/install. Ensure you have rustc and cargo available in your system path.
 
 ### Steps:
 
 - Clone the repository:
+
 ```
 git clone https://github.com/your-username/rustventory.git
 ```
+
 - Navigate to the project directory:
+
 ```
 cd rustventory
 ```
+
 - Build the project:
+
 ```
 cargo build
 ```
+
 - Running the application:
 
 Once the build is successful, you can run the program:
@@ -79,13 +86,17 @@ Once the build is successful, you can run the program:
 ```
 ./target/debug/rustventory
 ```
+
 - Run the project:
+
 ```
 cargo run
 ```
+
 This will start the Rustventory application with a text-based interface.
 
 ### Note:
+
 This guide assumes a Linux or macOS environment. Windows users may need additional steps to set up the development environment.
 
 For further assistance:
@@ -93,4 +104,5 @@ Refer to the project documentation for detailed instructions and usage examples.
 Feel free to raise any issues or questions on the project's GitHub repository.
 
 ## Developed By:
+
 Shaista A. Khan, a passionate cloud engineer with a penchant for technology, immerses herself in the dynamic world of cloud technology. Beyond her professional prowess, she thrives as a community facilitator, channeling her enthusiasm into connecting and empowering others. Shaista's life is a vibrant blend of cutting-edge tech exploration and heartfelt community engagement, where her skills as a cloud engineer seamlessly intertwine with her commitment to fostering a supportive and knowledgeable community.
