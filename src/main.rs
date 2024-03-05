@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+
 #[derive(Debug)]
 struct Product {
     name: String,
@@ -35,24 +36,31 @@ fn main() {
     let valid_username = "admin";
     let valid_password = "secret";
 
-    // Authentication loop
-    loop {
-        println!("Enter username:");
-        username.clear();
-        std::io::stdin().read_line(&mut username).expect("Failed to read username");
-        username.trim_end_matches('\n');
+        // Authentication loop
+        loop {
+            println!("Enter username:");
+            username.clear();
+            std::io::stdin().read_line(&mut username).unwrap();
+            let username = username.trim().parse::<String>().unwrap();
+            
+            println!("{} {}",  username, valid_username);
 
-        println!("Enter password:");
-        password.clear();
-        std::io::stdin().read_line(&mut password).expect("Failed to read password");
-        password.trim_end_matches('\n');
 
-        if username == valid_username && password == valid_password {
-            break;
-        } else {
-            println!("Invalid credentials. Try again.");
+            println!("Enter password:");
+            password.clear();
+            std::io::stdin().read_line(&mut password).unwrap();
+            let password = password.trim().parse::<String>().unwrap();
+            println!("{} {}", password, valid_password);
+
+
+            // Corrected comparison
+            if username == valid_username && password == valid_password {
+                break;
+            } else {
+                println!("Invalid credentials. Try again.");
+            }
         }
-    }
+    
 
     println!("Welcome!");
 
