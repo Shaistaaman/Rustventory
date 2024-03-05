@@ -43,14 +43,13 @@ fn main() {
             std::io::stdin().read_line(&mut username).unwrap();
             username = username.trim().parse::<String>().unwrap();
             
-            //println!("{} {}",  username, valid_username);
-
+           
 
             println!("Enter password:");
             password.clear();
             std::io::stdin().read_line(&mut password).unwrap();
             password = password.trim().parse::<String>().unwrap();
-            //println!("{} {}", password, valid_password);
+            
 
 
             // Corrected comparison
@@ -61,7 +60,7 @@ fn main() {
             }
         }
     
-
+    println!("--------------------");
     println!("Welcome!");
     println!("--------------------");
 
@@ -103,18 +102,19 @@ fn add_product(inventory: &mut HashMap<String, Product>) {
     let mut quantity: i32 = 0;
 
     println!("Enter product name:");
-    std::io::stdin().read_line(&mut name).expect("Failed to read name");
-    name.trim_end_matches('\n');
-
+    std::io::stdin().read_line(&mut name).unwrap();
+    name = name.trim().parse::<String>().unwrap();
+    
     println!("Enter product description:");
-    std::io::stdin().read_line(&mut description).expect("Failed to read description");
-    description.trim_end_matches('\n');
+    std::io::stdin().read_line(&mut description).unwrap();
+    description = description.trim().parse::<String>().unwrap();
+    
 
     loop {
         println!("Enter product price:");
         let mut price_input = String::new();
-        std::io::stdin().read_line(&mut price_input).expect("Failed to read price");
-        price_input.trim_end_matches('\n');
+        std::io::stdin().read_line(&mut price_input).unwrap();
+        price_input = price_input.trim().parse::<String>().unwrap();
 
         match price_input.parse::<f64>() {
             Ok(p) => {
@@ -128,8 +128,8 @@ fn add_product(inventory: &mut HashMap<String, Product>) {
     loop {
         println!("Enter product quantity:");
         let mut quantity_input = String::new();
-        std::io::stdin().read_line(&mut quantity_input).expect("Failed to read quantity");
-        quantity_input.trim_end_matches('\n');
+        std::io::stdin().read_line(&mut quantity_input).unwrap();
+        quantity_input = quantity_input.trim().parse::<String>().unwrap();
 
         match quantity_input.parse::<i32>() {
             Ok(q) => {
@@ -153,8 +153,8 @@ fn edit_product(inventory: &mut HashMap<String, Product>) {
     let mut product_name = String::new();
 
     println!("Enter the name of the product to edit:");
-    std::io::stdin().read_line(&mut product_name).expect("Failed to read name");
-    product_name.trim_end_matches('\n');
+    std::io::stdin().read_line(&mut product_name).unwrap();
+    product_name = product_name.trim().parse::<String>().unwrap();
 
     if !inventory.contains_key(&product_name) {
         println!("Product not found.");
@@ -167,17 +167,19 @@ fn edit_product(inventory: &mut HashMap<String, Product>) {
     println!("2. Price");
     println!("3. Quantity");
 
-    std::io::stdin().read_line(&mut choice).expect("Failed to read input");
-    choice.trim_end_matches('\n');
+    std::io::stdin().read_line(&mut choice).unwrap();
+    choice = choice.trim().parse::<String>().unwrap();
 
+    
     let mut product = inventory.get_mut(&product_name).unwrap();
 
     match choice.parse::<u8>() {
         Ok(1) => {
             let mut new_description = String::new();
             println!("Enter new description:");
-            std::io::stdin().read_line(&mut new_description).expect("Failed to read description");
-            new_description.trim_end_matches('\n');
+            std::io::stdin().read_line(&mut new_description).unwrap();
+            new_description = new_description.trim().parse::<String>().unwrap();
+
             product.description = new_description;
             println!("Description updated successfully!");
         },
@@ -185,8 +187,9 @@ fn edit_product(inventory: &mut HashMap<String, Product>) {
             loop {
                 let mut new_price = String::new();
                 println!("Enter new price:");
-                std::io::stdin().read_line(&mut new_price).expect("Failed to read price");
-                new_price.trim_end_matches('\n');
+                std::io::stdin().read_line(&mut new_price).unwrap();
+                new_price = new_price.trim().parse::<String>().unwrap();
+
 
                 match new_price.parse::<f64>() {
                     Ok(p) => {
@@ -202,8 +205,8 @@ fn edit_product(inventory: &mut HashMap<String, Product>) {
             loop {
                 let mut new_quantity = String::new();
                 println!("Enter new quantity:");
-                std::io::stdin().read_line(&mut new_quantity).expect("Failed to read quantity");
-                new_quantity.trim_end_matches('\n');
+                std::io::stdin().read_line(&mut new_quantity).unwrap();
+                new_quantity = new_quantity.trim().parse::<String>().unwrap();
 
                 match new_quantity.parse::<i32>() {
                     Ok(q) => {
@@ -223,9 +226,10 @@ fn delete_product(inventory: &mut HashMap<String, Product>) {
     let mut product_name = String::new();
 
     println!("Enter the name of the product to delete:");
-    std::io::stdin().read_line(&mut product_name).expect("Failed to read name");
-    product_name.trim_end_matches('\n');
+    std::io::stdin().read_line(&mut product_name).unwrap();
+    product_name = product_name.trim().parse::<String>().unwrap();
 
+    
     if !inventory.contains_key(&product_name) {
         println!("Product not found.");
         return;
