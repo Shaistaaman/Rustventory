@@ -41,16 +41,16 @@ fn main() {
             println!("Enter username:");
             username.clear();
             std::io::stdin().read_line(&mut username).unwrap();
-            let username = username.trim().parse::<String>().unwrap();
+            username = username.trim().parse::<String>().unwrap();
             
-            println!("{} {}",  username, valid_username);
+            //println!("{} {}",  username, valid_username);
 
 
             println!("Enter password:");
             password.clear();
             std::io::stdin().read_line(&mut password).unwrap();
-            let password = password.trim().parse::<String>().unwrap();
-            println!("{} {}", password, valid_password);
+            password = password.trim().parse::<String>().unwrap();
+            //println!("{} {}", password, valid_password);
 
 
             // Corrected comparison
@@ -63,6 +63,7 @@ fn main() {
     
 
     println!("Welcome!");
+    println!("--------------------");
 
     let mut inventory: HashMap<String, Product> = HashMap::new();
 
@@ -76,9 +77,11 @@ fn main() {
         println!("5. Exit");
 
         let mut choice = String::new();
-        std::io::stdin().read_line(&mut choice).expect("Failed to read input");
-        choice.trim_end_matches('\n');
 
+        choice.clear();
+        std::io::stdin().read_line(&mut choice).unwrap();
+        choice = choice.trim().parse::<String>().unwrap();
+            
         match choice.parse::<u8>() {
             Ok(1) => add_product(&mut inventory),
             Ok(2) => edit_product(&mut inventory),
