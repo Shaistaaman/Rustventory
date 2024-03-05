@@ -94,6 +94,8 @@ cargo run
 ```
 
 This will start the Rustventory application with a text-based interface.
+The output will look like:
+![Rustventory](output.png)
 
 ### Note:
 
